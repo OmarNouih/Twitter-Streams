@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+        [class*="fontawesome-"]:before {
+          font-family: 'fontawesome', sans-serif;
+        }
+
+        html {
+          background: #eee url(https://goo.gl/kqNwg);
+          color: #555;
+          font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-size: 10px;
+          -webkit-font-smoothing: antialiased;
+          font-style, font-weight, letter-spacing, line-height, word-spacing: normal;
+        }
+
+        a, a:visited {
+          color: #4099FF;
+          text-decoration: none;
+        }
+
+        .container {
+            width: 375px;
+            height: 300px; /* Adjust height as needed */
+            margin: 50px auto;
+        
+        }  
+        .wrapper {
+          margin-bottom: 20px;
+          background: #fff;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 0 10px #ddd;
+          overflow: hidden;
+          display: flex;
+          flex-direction: row;
+        }
+
+        img {
+            float: left;
+            width: 100px; /* Adjusted width */
+            height: auto;
+            border-right: 1px solid #eee;
+            padding: 10px;
+        }
+
+        article {
+          float: right;
+          padding: 14px 14px 20px;
+          border-bottom: 1px solid #eee;
+          width: 245px; /* Adjusted width */
+        }
+
+        h2 {
+          margin: 1px 0 7px;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: 1.1rem;
+          line-height: 1.5rem;
+        }
+
+        nav {
+          float: right;
+          margin: 14px;
+          width: 221px;
+        }
+
+        nav ul li {
+          float: right;
+          display: inline-block;
+        }
+
+        nav ul li a {
+          margin: 0 8px;
+          font-size: 1.2rem;
+        }
+
+        nav ul li .fontawesome-retweet, nav ul li .fontawesome-reply {
+          color: #aaa;
+        }
+
+        nav ul li .fontawesome-star {
+          color: #4099FF;
+        }
+
+        nav li.time {
+          float: left;
+          color: #aaa;
+        }
+    </style>
+</head>
+<body>
+{% include "header.html" %}
+<div class="container">
+  <div class="tweets-container">
+  </div>
+</div>
+
+<script>
+  var source = new EventSource("/stream_inserts");
+  source.onmessage = function(event) {
+    var tweet = JSON.parse(event.data);
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('wrapper');
+    wrapper.innerHTML = `
+      <img src="https://store-images.s-microsoft.com/image/apps.60673.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.5d82b7eb-9734-4b51-b65d-a0383348ab1b?h=464" alt="">
+      <article>
+        <p>
+          <a href="https://www.twitter.com/waynespiegel" target="_blank">Contenu du tweet :</a> ${tweet.content}
+        </p>
+        <p>
+          <span>Prediction: ${tweet.prediction}</span><br>
+          <span>Confidence: ${tweet.confidence}</span>
+        </p>
+      </article>
+    `;
+    var tweetsContainer = document.querySelector('.tweets-container');
+    tweetsContainer.insertBefore(wrapper, tweetsContainer.firstChild);
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Real-time Tweet Streaming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Tweet</title>
+    <style>
+        .header-navigation {
+            background-color:#fff;
+            font-family:'Arial';
+            border:1px solid #e1e8ed;
+            border-bottom:1px solid #e1e8ed;
+        }
+        
+        .navigation {
+            margin-left:auto;
+            margin-right:auto;
+            font-size:20px;
+            height:60px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .navigation .nav-item {
+            float:left;
+        }
+        
+        .navigation .nav-item a {
+            padding:20px 40px 16px 40px;
+            text-decoration:none;
+            color:#55acee;
+            border-right:1px solid #e1e8ed;
+            transition: box-shadow 100ms ease;
+         }
+        .navigation .nav-item:last-child a{
+            border-right:none;
+        }
+        .navigation .nav-item a:hover {
+           box-shadow: 0 -15px 0 -10px #55acee inset;
+         }
+        .v-center {
+            text-align:center;
+            position:relative;
+            top:50%;
+            transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+        }
+        
+    </style>
+</head>
+<body>
+<div class="header-navigation">
+    <div class="navigation">
+        <span class="nav-item v-center"><a href="/">Tweets</a></span>
+        <span class="nav-item v-center"><a href="/stream">Streaming</a></span>
+        <span class="nav-item v-center"><a href="/validation">Données de test</a></span>
+
+    </div>
+</div>
