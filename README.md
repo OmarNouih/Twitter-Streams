@@ -71,9 +71,12 @@ There are two ways to test the streams within the application:
 1. Real-time text entry for immediate sentiment analysis.
 2. Use the "Start Streaming Tweets" button to initiate streaming from `twitter_validation.csv`.
 
-## Adding Multimedia Content
-- **Video Demonstration**: _[Placeholder for video link]_ - Include a video walkthrough of the application.
-- **Screenshots**: _[Placeholder for images]_ - Screenshots of the application in action.
+## Multimedia Content
+- **Video Demonstration**
+
+https://github.com/OmarNouih/Twitter-Streams/assets/27814897/04f5149b-f44d-4218-b10e-1583bfb92ee7
+
+ 
 
 ## Project Repository
 The source code is available at _[[GitHub repository link](https://github.com/OmarNouih/Twitter-Streams/)]_.
