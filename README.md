@@ -8,6 +8,11 @@
 ## Overview
 This project develops a web application for real-time sentiment analysis of Twitter streams using Apache Kafka and machine learning models. The application categorizes each tweet as Negative, Positive, Neutral, or Irrelevant.
 
+## Multimedia Content
+- **Video Demonstration**
+
+https://github.com/OmarNouih/Twitter-Streams/assets/27814897/04f5149b-f44d-4218-b10e-1583bfb92ee7
+
 ## Architecture
 - **APP**: Flask application, static resources, and HTML templates.
 - **Spark**: Machine learning and stream processing scripts, datasets.
@@ -69,14 +74,7 @@ Twitter Entity Sentiment Analysis data obtained from [Kaggle](https://www.kaggle
 ## Testing Streams
 There are two ways to test the streams within the application:
 1. Real-time text entry for immediate sentiment analysis.
-2. Use the "Start Streaming Tweets" button to initiate streaming from `twitter_validation.csv`.
-
-## Multimedia Content
-- **Video Demonstration**
-
-https://github.com/OmarNouih/Twitter-Streams/assets/27814897/04f5149b-f44d-4218-b10e-1583bfb92ee7
-
- 
+2. Use the "Start Streaming Tweets" button to initiate streaming from `twitter_validation.csv`. 
 
 ## Project Repository
 The source code is available at _[[GitHub repository link](https://github.com/OmarNouih/Twitter-Streams/)]_.
