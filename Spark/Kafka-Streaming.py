@@ -20,7 +20,7 @@ schema = StructType([
     StructField("content", StringType(), True)
 ])
 
-client = MongoClient("mongodb+srv://omarnouih:TlWnZtZ0ys2biHc7@cluster0.x0uig6h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client = MongoClient("mongodb+srv://{username}:{password}@cluster0.x0uig6h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["BigData"]
 collection = db["TweetsPredictions"]
 
