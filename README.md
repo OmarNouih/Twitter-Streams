@@ -11,7 +11,7 @@ This project develops a web application for real-time sentiment analysis of Twit
 ## Multimedia Content
 - **Video Demonstration**
 
-https://github.com/OmarNouih/Twitter-Streams/assets/27814897/04f5149b-f44d-4218-b10e-1583bfb92ee7
+  [Link to Video Demonstration](https://github.com/OmarNouih/Twitter-Streams/assets/27814897/04f5149b-f44d-4218-b10e-1583bfb92ee7)
 
 ## Architecture
 - **APP**: Flask application, static resources, and HTML templates.
@@ -48,9 +48,13 @@ spark-submit Spark-MLlib.py
 ### Streaming with Kafka
 Start the Kafka streaming process with the following command:
 ```bash
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.mongodb.spark:mongo-spark-connector_2.12:3.0.0 KafkaSpark-Streaming.py
+```
+or
+
+```bash
 spark-submit Kafka-Streaming.py
 ```
-
 ### MongoDB Setup
 Ensure MongoDB is operational and the URI is set up as per your `main.py` , `Kafka-Streaming.py` configuration.
 
@@ -75,6 +79,22 @@ Twitter Entity Sentiment Analysis data obtained from [Kaggle](https://www.kaggle
 There are two ways to test the streams within the application:
 1. Real-time text entry for immediate sentiment analysis.
 2. Use the "Start Streaming Tweets" button to initiate streaming from `twitter_validation.csv`. 
+
+## File Descriptions
+
+1. **KafkaSpark-Streaming.py**: This script utilizes Spark Structured Streaming to consume tweets from Kafka, perform sentiment analysis using a pre-trained machine learning model, and save the results to MongoDB.
+
+    - **Structured Streaming with Kafka**: The script sets up a structured streaming process to consume real-time tweets from Kafka topics. It integrates Kafka as a source for streaming data, leveraging Spark's structured streaming API for real-time data processing.
+    
+    - **Sentiment Analysis**: After consuming tweets, the script applies sentiment analysis using a pre-trained machine learning model. It tokenizes, preprocesses, and transforms the tweets into feature vectors before making sentiment predictions.
+    
+    - **MongoDB Integration**: Results from the sentiment analysis are then stored in MongoDB for further analysis or retrieval by downstream applications.
+
+2. **KafkaProducer-Streaming.py**: This script collects tweets in real-time using the Twitter API and produces them to a Kafka topic for further processing.
+
+    - **Producer-Consumer Architecture**: The script serves as a Kafka producer, continuously fetching tweets from the Twitter API and publishing them to a specified Kafka topic. It follows the producer-consumer pattern, where it acts as a data source for downstream consumers, such as the KafkaSpark-Streaming.py script.
+    
+    - **Real-Time Data Collection**: Utilizing the Twitter API, the script collects tweets in real-time, ensuring a continuous stream of data for downstream processing.
 
 ## Project Repository
 The source code is available at _[[GitHub repository link](https://github.com/OmarNouih/Twitter-Streams/)]_.
